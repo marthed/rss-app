@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const latestRoute = require('./latest.js');
 
-router.get('/', function(req, res) { res.send('index.html')});
-router.get('/latest', latestRoute.getLatestFeeds);
+router.get('/', function(req, res) { 
+  res.render('index', { title: 'The latest RSS feeds', message: 'Hello World'})
+});
 
 module.exports = router;
