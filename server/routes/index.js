@@ -1,8 +1,11 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
+const axios = require("axios");
 
-router.get('/', function(req, res) { 
-  res.render('index', { title: 'A code case with RSS', message: 'Hello world!'})
+router.get("/rss", async (req, res) => {
+  console.log("getting url", req.query.url);
+  const response = await axios.get(req.query.url);
+  res.send(response.data);
 });
 
 module.exports = router;
